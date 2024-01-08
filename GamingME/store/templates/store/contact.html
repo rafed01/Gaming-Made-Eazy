@@ -1,0 +1,40 @@
+{% extends 'store/main.html' %}
+{% block title %}Contact{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Contact Us</h2>
+    <p class="lead">Have questions? We're here to help!</p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" action="{% url 'contact' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_name">Your Name</label>
+                    {{ form.name }}
+                </div>
+                <div class="form-group">
+                    <label for="id_email">Your Email</label>
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    <label for="id_message">Your Message</label>
+                    {{ form.message }}
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <div class="col-md-6">
+            <div class="contact-info">
+                <h4>Contact Information</h4>
+                <p>Email: info@example.com</p>
+                <p>Phone: +1 (123) 456-7890</p>
+                <p>Address: 123 Main Street, Cityville, Country</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
